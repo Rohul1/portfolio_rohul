@@ -26,17 +26,29 @@
     scroll-padding-top: 80px;
   }
 
+  /* Gemini-style Dynamic Animated Gradient Background */
   body {
-    background-color: var(--bg-dark);
-    background-image: 
-      radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.08) 0px, transparent 50%);
+    background: linear-gradient(-45deg, #070d19, #0f172a, #064e3b, #111827, #312e81, #070d19);
+    background-size: 400% 400%;
+    animation: geminiGradient 16s ease infinite;
     background-attachment: fixed;
     color: var(--text-main);
     font-family: var(--font-body);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     padding-top: 70px;
+  }
+
+  @keyframes geminiGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
   a { color: inherit; text-decoration: none; }
@@ -55,7 +67,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(7, 13, 25, 0.92);
+    background: rgba(7, 13, 25, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--card-border);
@@ -101,9 +113,11 @@
   nav a:hover { color: var(--accent); }
 
   /* ---------- Hero Section ---------- */
-  .hero { padding: 45px 0 20px; } /* Top padding barano hoyeche */
+  .hero { padding: 45px 0 20px; }
   .titleblock {
     background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--card-border);
     border-radius: 20px;
     box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
@@ -112,7 +126,7 @@
     overflow: hidden;
   }
   .tb-main { 
-    padding: 44px 36px; /* Box-er moddher vertical padding barano hoyeche */
+    padding: 44px 36px; 
     flex: 1;
   }
   
@@ -131,20 +145,20 @@
     object-fit: cover; 
     object-position: top;
     flex-shrink: 0;
-    margin-top: 4px; /* Chobi halka niche kora hoyeche */
+    margin-top: 4px;
   }
 
   .tb-content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding-top: 4px; /* Content halka niche namao hoyeche */
+    padding-top: 4px;
   }
   
   .tb-eyebrow {
     font-size: 12px; font-weight: 600;
     color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em;
-    margin-bottom: 6px; /* Spacing ektu barano hoyeche */
+    margin-bottom: 6px;
   }
   .tb-name {
     font-family: var(--font-heading);
@@ -191,7 +205,9 @@
   }
   .hero-foot a {
     text-align: center; padding: 12px 8px;
-    background: var(--card-bg); border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
     border-radius: 12px; font-size: 13px; font-weight: 600;
     transition: all 0.2s ease;
     word-break: break-all;
@@ -224,7 +240,7 @@
   .role::before {
     content: ''; position: absolute; left: -25px; top: 6px;
     width: 12px; height: 12px; border-radius: 50%;
-    background: var(--bg-dark); border: 2px solid var(--text-muted);
+    background: #070D19; border: 2px solid var(--text-muted);
   }
   .role.current::before {
     background: var(--accent); border-color: var(--accent);
@@ -249,7 +265,9 @@
     gap: 16px;
   }
   .skill-card {
-    background: var(--card-bg); border: 1px solid var(--card-border);
+    background: var(--card-bg); 
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
     border-radius: 14px; padding: 20px;
   }
   .skill-row {
@@ -266,7 +284,9 @@
   /* ---------- Education ---------- */
   .edu-grid { display: grid; gap: 14px; }
   .edu-item {
-    background: var(--card-bg); border: 1px solid var(--card-border);
+    background: var(--card-bg); 
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
     border-radius: 14px; padding: 18px 20px;
     display: flex; flex-direction: row; gap: 20px;
   }
@@ -278,7 +298,9 @@
   /* ---------- Projects ---------- */
   .proj-list { display: grid; gap: 16px; }
   .proj {
-    background: var(--card-bg); border: 1px solid var(--card-border);
+    background: var(--card-bg); 
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
     border-radius: 16px; padding: 24px;
     display: flex; justify-content: space-between; align-items: flex-start;
     gap: 16px;
@@ -299,7 +321,8 @@
 
   /* ---------- Contact ---------- */
   .contact-block {
-    background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(7, 13, 25, 1) 100%);
+    background: rgba(7, 13, 25, 0.7);
+    backdrop-filter: blur(12px);
     border-top: 1px solid var(--card-border);
     padding: 50px 0 20px; margin-top: 30px;
   }
