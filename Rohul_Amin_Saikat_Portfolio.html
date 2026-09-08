@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Rohul Amin Saikat — Portfolio</title>
+
+<!-- Google Fonts (Inter Font) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-dark: #070D19;
+    --card-bg: rgba(15, 23, 42, 0.75);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-main: #F1F5F9;
+    --text-muted: #94A3B8;
+    --accent: #10B981;
+    --accent-glow: rgba(16, 185, 129, 0.25);
+    --gold: #F59E0B;
+    --line: rgba(255, 255, 255, 0.08);
+    
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  *, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+  }
+  
+  html {
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    background-color: var(--bg-dark);
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding-top: 70px;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; height: auto; display: block; }
+
+  .wrap {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ---------- Header & Nav ---------- */
+  header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(7, 13, 25, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--card-border);
+    z-index: 1000;
+  }
+  .navbar {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    padding: 16px 0;
+    position: relative;
+  }
+  .navmark {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+  .navmark span { color: var(--accent); }
+
+  .menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  nav ul {
+    list-style: none; 
+    display: flex; 
+    gap: 24px;
+  }
+  nav a {
+    font-size: 14px; 
+    color: var(--text-muted); 
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--accent); }
+
+  /* ---------- Hero Section ---------- */
+  .hero { padding: 45px 0 20px; } /* Top padding barano hoyeche */
+  .titleblock {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+  .tb-main { 
+    padding: 44px 36px; /* Box-er moddher vertical padding barano hoyeche */
+    flex: 1;
+  }
+  
+  .tb-header-group { 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 24px; 
+  }
+  
+  .profile-circle {
+    width: 84px; 
+    height: 84px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+    object-fit: cover; 
+    object-position: top;
+    flex-shrink: 0;
+    margin-top: 4px; /* Chobi halka niche kora hoyeche */
+  }
+
+  .tb-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 4px; /* Content halka niche namao hoyeche */
+  }
+  
+  .tb-eyebrow {
+    font-size: 12px; font-weight: 600;
+    color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 6px; /* Spacing ektu barano hoyeche */
+  }
+  .tb-name {
+    font-family: var(--font-heading);
+    font-size: clamp(20px, 3.2vw, 30px);
+    font-weight: 700; 
+    line-height: 1.25; 
+    margin-bottom: 12px;
+    white-space: nowrap;
+  }
+  .tb-role {
+    font-size: 14px; 
+    color: var(--text-muted); 
+    max-width: 48ch;
+    line-height: 1.6;
+  }
+  
+  .tb-side {
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 1px solid var(--card-border);
+    padding: 44px 28px;
+    width: 280px;
+    flex-shrink: 0;
+    display: flex; flex-direction: column; justify-content: space-between;
+    font-size: 13px;
+  }
+  .tb-field dt {
+    color: var(--text-muted); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.05em; margin-bottom: 2px;
+  }
+  .tb-field dd { font-weight: 600; color: var(--text-main); margin-bottom: 14px;}
+  
+  .status-dot {
+    display: inline-block; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    margin-right: 6px;
+  }
+
+  .hero-foot {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .hero-foot a {
+    text-align: center; padding: 12px 8px;
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 12px; font-size: 13px; font-weight: 600;
+    transition: all 0.2s ease;
+    word-break: break-all;
+    cursor: pointer;
+  }
+  .hero-foot a:hover {
+    border-color: var(--accent); color: var(--accent);
+  }
+
+  /* ---------- Section Scaffolding ---------- */
+  section { padding: 45px 0; }
+  .sec-head {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
+  }
+  .sec-num {
+    font-family: var(--font-heading); color: var(--accent);
+    font-size: 15px; font-weight: 700;
+  }
+  .sec-title {
+    font-family: var(--font-heading); font-size: clamp(20px, 3.5vw, 26px);
+    font-weight: 700;
+  }
+  .sec-rule { flex: 1; height: 1px; background: var(--line); }
+  .lede { font-size: 14px; color: #CBD5E1; line-height: 1.7; }
+
+  /* ---------- Experience ---------- */
+  .timeline { position: relative; padding-left: 18px; border-left: 2px solid var(--card-border); }
+  .role { position: relative; margin-bottom: 28px; padding-left: 14px; }
+  .role:last-child { margin-bottom: 0; }
+  .role::before {
+    content: ''; position: absolute; left: -25px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--bg-dark); border: 2px solid var(--text-muted);
+  }
+  .role.current::before {
+    background: var(--accent); border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+  }
+  .role-period {
+    font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 4px;
+    display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .role-period .tag {
+    background: rgba(16, 185, 129, 0.15); color: var(--accent);
+    padding: 2px 8px; border-radius: 6px; font-size: 11px;
+  }
+  .role-title { font-family: var(--font-heading); font-size: 17px; font-weight: 700; }
+  .role-org { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+  .role-desc { font-size: 13.5px; color: #CBD5E1; }
+
+  /* ---------- Skills ---------- */
+  .skills-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .skill-card {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 14px; padding: 20px;
+  }
+  .skill-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px; font-size: 13px; font-weight: 500; gap: 10px;
+  }
+  .skill-row:last-child { margin-bottom: 0; }
+  .skill-level { display: flex; gap: 4px; flex-shrink: 0; }
+  .skill-level span {
+    width: 8px; height: 8px; border-radius: 2px; background: var(--card-border);
+  }
+  .skill-level span.on { background: var(--accent); }
+
+  /* ---------- Education ---------- */
+  .edu-grid { display: grid; gap: 14px; }
+  .edu-item {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 14px; padding: 18px 20px;
+    display: flex; flex-direction: row; gap: 20px;
+  }
+  .edu-year { font-size: 12px; color: var(--accent); font-weight: 600; min-width: 100px; }
+  .edu-degree { font-family: var(--font-heading); font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+  .edu-inst { font-size: 13px; color: var(--text-muted); }
+  .edu-result { font-size: 12px; color: var(--gold); font-weight: 600; margin-top: 4px; }
+
+  /* ---------- Projects ---------- */
+  .proj-list { display: grid; gap: 16px; }
+  .proj {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 16px; padding: 24px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 16px;
+  }
+  .proj-title { font-family: var(--font-heading); font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .proj-desc { font-size: 13.5px; color: var(--text-muted); margin-bottom: 16px; }
+  .proj-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .proj-btn {
+    font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 8px;
+    border: 1px solid var(--card-border); transition: all 0.2s;
+  }
+  .proj-btn.live { background: var(--accent); color: #022C22; border-color: var(--accent); }
+  .proj-tag {
+    font-size: 11px; font-weight: 600; color: var(--accent);
+    background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 4px 10px; border-radius: 20px; white-space: nowrap;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-block {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(7, 13, 25, 1) 100%);
+    border-top: 1px solid var(--card-border);
+    padding: 50px 0 20px; margin-top: 30px;
+  }
+  .contact-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+  .contact-links a {
+    flex: 1 1 calc(50% - 10px); text-align: center;
+    padding: 12px; border-radius: 10px; font-size: 13px; font-weight: 600;
+    border: 1px solid var(--card-border); background: var(--card-bg);
+    word-break: break-all;
+  }
+  .contact-links a.primary { background: var(--accent); color: #022C22; border-color: var(--accent); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--card-border);
+    padding: 24px 0;
+    margin-top: 30px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .foot-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .top-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .top-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 768px) {
+    .menu-btn { display: block; }
+    nav {
+      display: none;
+      position: absolute;
+      top: 100%; left: 0; width: 100%;
+      background: rgba(7, 13, 25, 0.98);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    nav.active { display: block; }
+    nav ul { flex-direction: column; gap: 14px; }
+    nav a { font-size: 14px; display: block; }
+
+    .titleblock { flex-direction: column; }
+    .tb-side { 
+      width: 100%; 
+      border-left: none; 
+      border-top: 1px solid var(--card-border); 
+      padding: 24px;
+    }
+    .tb-main { padding: 28px 24px; }
+    .tb-content { padding-top: 0; }
+    .profile-circle { margin-top: 0; }
+    .tb-name { font-size: clamp(18px, 4.5vw, 24px); }
+    .hero-foot { grid-template-columns: repeat(2, 1fr); }
+    .proj { flex-direction: column-reverse; }
+    .proj-tag { align-self: flex-start; }
+    .edu-item { flex-direction: column; gap: 4px; }
+    .edu-year { min-width: auto; }
+  }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 0 14px; }
+    .tb-header-group { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .profile-circle { width: 72px; height: 72px; }
+    .tb-name { white-space: normal; }
+    .hero-foot { grid-template-columns: 1fr; }
+    .contact-links a { flex: 1 1 100%; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .foot-wrap { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap navbar">
+    <div class="navmark">ROHUL AMIN <span>SAIKAT</span></div>
+    <button class="menu-btn" id="menuToggle" aria-label="Toggle Menu">☰</button>
+    <nav id="navMenu">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap hero">
+  <div class="titleblock">
+    <div class="tb-main">
+      <div class="tb-header-group">
+        <img class="profile-circle" src="IMG_2500.JPG" alt="Muhammad Rohul Amin Saikat">
+        <div class="tb-content">
+          <div class="tb-eyebrow">Data, Production &amp; Web Engineering</div>
+          <h1 class="tb-name">Muhammad Rohul Amin Saikat</h1>
+          <p class="tb-role">Data Assistant bridging industrial operations with web engineering—transforming complex production data into automated, high-performance web solutions.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tb-side">
+      <div>
+        <div class="tb-field">
+          <dt>Location</dt>
+          <dd>Mymensingh, Bangladesh</dd>
+        </div>
+        <div class="tb-field">
+          <dt>Current role</dt>
+          <dd>Data Assistant, Akij Biax Films Ltd.</dd>
+        </div>
+        <div class="tb-field">
+          <dt>Education</dt>
+          <dd>BSc in CSE (In Progress)</dd>
+        </div>
+      </div>
+      <div class="tb-field" style="margin-bottom:0;">
+        <dt>Status</dt>
+        <dd><span class="status-dot"></span>Open to opportunities</dd>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <a id="emailBtn">Email</a>
+    <a id="callBtn">Call</a>
+    <a href="https://app.netlify.com/teams/rohul669319/projects" target="_blank" rel="noopener">Netlify</a>
+    <a href="https://github.com/Rohul1" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</main>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">About</h2>
+      <span class="sec-rule"></span>
+    </div>
+    <p class="lede">
+      With a strong analytical background in <strong>Production Management</strong> and <strong>Data Analysis</strong>, I specialize in bridging industrial engineering with modern IT workflows. Beginning on the shop floor at Akij Biax Films Ltd, I managed manpower, floor operations, and line efficiency before transitioning into data management.
+      <br><br>
+      Today, I leverage advanced <strong>data analytics, spreadsheet automation, and MERN-stack web technologies</strong> to optimize production reporting, eliminate workflow bottlenecks, and drive data-informed operational strategies—all while completing my BSc in Computer Science &amp; Engineering.
+    </p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Experience</h2>
+      <span class="sec-rule"></span>
+    </div>
+    <div class="timeline">
+      <div class="role current">
+        <div class="role-period">Mar 2025 — Present <span class="tag">Current</span></div>
+        <div class="role-title">Data Assistant</div>
+        <div class="role-org">Akij Biax Films Limited</div>
+        <div class="role-desc">Managing large-scale production analytics, engineering custom automated tools to streamline reporting workflows, and delivering actionable operational insights.</div>
+      </div>
+      <div class="role">
+        <div class="role-period">Mar 2024 — Feb 2025</div>
+        <div class="role-title">Sub-Assistant Engineer (Production)</div>
+        <div class="role-org">Akij Biax Films Limited</div>
+        <div class="role-desc">Overseeing daily production routines, preventive equipment maintenance, and manpower planning — establishing a strong foundation in workflow efficiency.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Skills</h2>
+      <span class="sec-rule"></span>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-row">
+          <span>HTML / Tailwind / Bootstrap</span>
+          <span class="skill-level"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span>
+        </div>
+        <div class="skill-row">
+          <span>MERN Stack Development</span>
+          <span class="skill-level"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span>
+        </div>
+        <div class="skill-row">
+          <span>Data Analysis &amp; Visualization</span>
+          <span class="skill-level"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span>
+        </div>
+        <div class="skill-row">
+          <span>Digital Marketing &amp; Strategy</span>
+          <span class="skill-level"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-row">
+          <span>Advanced MS Excel</span>
+          <span class="skill-level"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span>
+        </div>
+        <div class="skill-row">
+          <span>MS Office Suite</span>
+          <span class="skill-level"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span>
+        </div>
+        <div class="skill-row">
+          <span>Executive Reporting</span>
+          <span class="skill-level"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span>
+        </div>
+        <div class="skill-row">
+          <span>Process &amp; Operations Management</span>
+          <span class="skill-level"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Education</h2>
+      <span class="sec-rule"></span>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <div class="edu-year">Ongoing</div>
+        <div>
+          <div class="edu-degree">BSc in Computer Science &amp; Engineering</div>
+          <div class="edu-inst">Northern University Bangladesh</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2019 — 2023</div>
+        <div>
+          <div class="edu-degree">Diploma in Computer Technology</div>
+          <div class="edu-inst">Rajshahi Polytechnic Institute (BTEB)</div>
+          <div class="edu-result">CGPA 3.53 / 4.00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">Projects</h2>
+      <span class="sec-rule"></span>
+    </div>
+    <div class="proj-list">
+
+      <div class="proj">
+        <div>
+          <div class="proj-title">MealDB Explorer</div>
+          <div class="proj-desc">Dynamic culinary platform integrated with public REST APIs featuring real-time search, category filtering, and responsive UI components.</div>
+          <div class="proj-links">
+            <a href="https://jocular-kheer-230099.netlify.app" target="_blank" rel="noopener" class="proj-btn live">Live Demo ↗</a>
+            <a href="https://github.com/Rohul1" target="_blank" rel="noopener" class="proj-btn">GitHub Repo</a>
+          </div>
+        </div>
+        <span class="proj-tag">API · JavaScript</span>
+      </div>
+
+      <div class="proj">
+        <div>
+          <div class="proj-title">Food Surplus Distribution System</div>
+          <div class="proj-desc">A full-stack web application designed to bridge community surplus with localized distribution channels to reduce food wastage.</div>
+          <div class="proj-links">
+            <a href="https://spectacular-licorice-f1b194.netlify.app" target="_blank" rel="noopener" class="proj-btn live">Live Demo ↗</a>
+            <a href="https://github.com/Rohul1/foodshare" target="_blank" rel="noopener" class="proj-btn">GitHub Repo</a>
+          </div>
+        </div>
+        <span class="proj-tag">Full-Stack · Web App</span>
+      </div>
+
+      <div class="proj">
+        <div>
+          <div class="proj-title">Single Page E-Commerce Engine</div>
+          <div class="proj-desc">High-performance SPA store built using React and Vite, delivering seamless client-side routing and optimized page loads.</div>
+          <div class="proj-links">
+            <a href="https://github.com/Rohul1" target="_blank" rel="noopener" class="proj-btn">GitHub Repo</a>
+          </div>
+        </div>
+        <span class="proj-tag">React · Vite</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="contact-block" id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">Get In Touch</h2>
+      <span class="sec-rule"></span>
+    </div>
+    <p class="lede">Interested in data solutions, web development, or collaboration? Feel free to connect directly via email or phone.</p>
+    <div class="contact-links">
+      <a class="primary" href="mailto:rohul669319@gmail.com">rohul669319@gmail.com</a>
+      <a href="tel:+8801761019737">+880 1761-019737</a>
+      <a href="https://app.netlify.com/teams/rohul669319/projects" target="_blank" rel="noopener">Netlify</a>
+      <a href="https://github.com/Rohul1" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-wrap">
+    <div>© <span id="year"></span> Muhammad Rohul Amin Saikat. Built with precision.</div>
+    <button class="top-btn" id="scrollTopBtn">↑ Back to top</button>
+  </div>
+</footer>
+
+<script>
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
+
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  document.querySelectorAll('#navMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+    });
+  });
+
+  // Reveal & Click Actions
+  const emailBtn = document.getElementById('emailBtn');
+  const callBtn = document.getElementById('callBtn');
+
+  emailBtn.addEventListener('click', (e) => {
+    if (!emailBtn.getAttribute('href')) {
+      e.preventDefault();
+      emailBtn.textContent = 'rohul669319@gmail.com';
+      emailBtn.setAttribute('href', 'mailto:rohul669319@gmail.com');
+    }
+  });
+
+  callBtn.addEventListener('click', (e) => {
+    if (!callBtn.getAttribute('href')) {
+      e.preventDefault();
+      callBtn.textContent = '01761019737 (Call Now)';
+      callBtn.setAttribute('href', 'tel:+8801761019737');
+    }
+  });
+
+  // Footer Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll to Top
+  document.getElementById('scrollTopBtn').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
